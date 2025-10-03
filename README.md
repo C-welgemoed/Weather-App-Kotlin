@@ -24,22 +24,22 @@ A modern, user-friendly Android weather application built with Kotlin that provi
 <div align="center">
 
 ### Splash Screen
-![IMG-20250928-WA0007](https://github.com/user-attachments/assets/42b7de6a-988d-4968-9c20-75f90be4966b)
+<img src="screenshots/splash_screen.png" width="250" alt="Splash Screen">
 
 *Loading screen with animated weather icon*
 
 ### Weather Display - Sunny Conditions
-![IMG-20250928-WA0002](https://github.com/user-attachments/assets/eba474a9-4b26-4610-80b8-600a44ad493e)
+<img src="screenshots/sunny_weather.png" width="250" alt="Sunny Weather in Diepenbeek">
 
 *Warm gradient background for sunny weather in Diepenbeek, Belgium*
 
 ### Weather Display - Cloudy Conditions  
-![IMG-20250928-WA0006](https://github.com/user-attachments/assets/68b8085f-fa14-42a9-b355-2f1de3e77e53)
+<img src="screenshots/cloudy_weather.png" width="250" alt="Cloudy Weather">
 
 *Gray atmospheric design for partly cloudy conditions*
 
 ### Location Search
-![IMG-20250928-WA0004](https://github.com/user-attachments/assets/fb05fcec-cd07-4d99-a7b5-dd082638907e)
+<img src="screenshots/location_search.png" width="250" alt="Location Search">
 
 *Autocomplete search suggestions for cities worldwide*
 
@@ -193,7 +193,8 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 - Icons and design inspired by Material Design guidelines
 
 
+For issues, questions, or suggestions, please open an issue in the repository.
 
 ---
 
-**Note**: Remember to never commit your API key to version control. Always use environment variables or build configuration fields. (API key is removed in the sourcecode and can be updated in the build.gradle (app))
+**Note**: Remember to never commit your API key to version control. Always use environment variables or build configuration fields.
