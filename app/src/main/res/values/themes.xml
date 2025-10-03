@@ -1,0 +1,21 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.WeatherAppKotlinLang" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/sunny_center</item>
+        <item name="colorPrimaryVariant">@color/sunny_end</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/cloudy_center</item>
+        <item name="colorSecondaryVariant">@color/cloudy_end</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+
+    <style name="Theme.WeatherAppKotlinLang" parent="Base.Theme.WeatherAppKotlinLang" />
+
+    <style name="Theme.WeatherAppKotlinLang.NoActionBar" parent="Theme.WeatherAppKotlinLang">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+</resources>

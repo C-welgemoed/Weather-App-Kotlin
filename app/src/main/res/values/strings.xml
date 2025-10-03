@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Weather App</string>
+    <string name="search_hint">Search for City</string>
+    <string name="select_city">Select a City</string>
+    <string name="today">Today</string>
+    <string name="max_temp">Max: %1$d°C</string>
+    <string name="min_temp">Min: %1$d°C</string>
+    <string name="current_temp">%1$d°C</string>
+    <string name="humidity">Humidity</string>
+    <string name="wind_speed">Wind Speed</string>
+    <string name="conditions">Conditions</string>
+    <string name="sunrise">Sunrise</string>
+    <string name="sunset">Sunset</string>
+    <string name="sea_level">Sea Level</string>
+    <string name="loading">Loading...</string>
+    <string name="error_loading_weather">Error loading weather data</string>
+    <string name="error_api_key">API key not available</string>
+    <string name="error_network">Network error occurred</string>
+    <string name="try_again">Try Again</string>
+</resources>

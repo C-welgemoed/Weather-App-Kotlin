@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- Weather Background Colors -->
+    <color name="sunny_start">#FFD54F</color>
+    <color name="sunny_center">#FFCC02</color>
+    <color name="sunny_end">#FF8F00</color>
+
+    <color name="rainy_start">#607D8B</color>
+    <color name="rainy_center">#455A64</color>
+    <color name="rainy_end">#263238</color>
+
+    <color name="cloudy_start">#90A4AE</color>
+    <color name="cloudy_center">#78909C</color>
+    <color name="cloudy_end">#546E7A</color>
+
+    <color name="snowy_start">#ECEFF1</color>
+    <color name="snowy_center">#CFD8DC</color>
+    <color name="snowy_end">#B0BEC5</color>
+
+    <!-- UI Colors -->
+    <color name="card_background">#80FFFFFF</color>
+    <color name="card_stroke">#4DFFFFFF</color>
+    <color name="search_background">#80FFFFFF</color>
+    <color name="search_stroke">#CCFFFFFF</color>
+
+    <!-- Primary Brand Colors -->
+    <color name="colorPrimary">#2196F3</color> <!-- Blue sky -->
+    <color name="colorPrimaryDark">#1976D2</color> <!-- Darker blue -->
+    <color name="colorAccent">#FFEB3B</color> <!-- Sunny yellow -->
+
+    <!-- Text Colors -->
+    <color name="textPrimary">#FFFFFFFF</color> <!-- White -->
+    <color name="textSecondary">#80FFFFFF</color> <!-- Semi-transparent white -->
+    <color name="textError">#FFFF6B6B</color> <!-- Soft red -->
+    <color name="textDebug">#FF4CAF50</color> <!-- Green (Debug) -->
+
+    <!-- Backgrounds -->
+    <color name="backgroundSplash">#2196F3</color> <!-- Blue base, used if no drawable -->
+    <color name="backgroundErrorShape">#1A000000</color> <!-- Slightly transparent dark bg -->
+
+    <!-- Progress Indicator -->
+    <color name="progressBarTint">#FFFFFFFF</color> <!-- White -->
+
+    <!-- Extra Shades (optional for flexibility) -->
+    <color name="overlayDark">#66000000</color> <!-- Semi-transparent overlay -->
+    <color name="divider">#33FFFFFF</color> <!-- Light divider line -->
+
+</resources>
