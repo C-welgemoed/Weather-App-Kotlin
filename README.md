@@ -29,7 +29,8 @@ A modern, user-friendly Android weather application built with Kotlin that provi
 *Loading screen with animated weather icon*
 
 ### Weather Display - Sunny Conditions
-<img src="screenshots/sunny_weather.png" width="250" alt="Sunny Weather in Diepenbeek">
+<img src="![IMG-20250928-WA0007](https://github.com/user-attachments/assets/9a58de68-d131-4f15-aef2-9cdb6f756477)
+" width="250" alt="Sunny Weather in Diepenbeek">
 
 *Warm gradient background for sunny weather in Diepenbeek, Belgium*
 
