@@ -24,23 +24,22 @@ A modern, user-friendly Android weather application built with Kotlin that provi
 <div align="center">
 
 ### Splash Screen
-<img src="screenshots/splash_screen.png" width="250" alt="Splash Screen">
+<img src="https://github.com/user-attachments/assets/fcd283bc-06f5-46be-a4c2-9cc68091436a" width="250" alt="Splash Screen"/>
 
 *Loading screen with animated weather icon*
 
 ### Weather Display - Sunny Conditions
-<img src="![IMG-20250928-WA0007](https://github.com/user-attachments/assets/9a58de68-d131-4f15-aef2-9cdb6f756477)
-" width="250" alt="Sunny Weather in Diepenbeek">
+<img src="https://github.com/user-attachments/assets/3b17b9c9-2d79-45b2-9ed7-730d2f482dc0" width="250" alt="Sunny Weather in Diepenbeek"/>
 
 *Warm gradient background for sunny weather in Diepenbeek, Belgium*
 
 ### Weather Display - Cloudy Conditions  
-<img src="screenshots/cloudy_weather.png" width="250" alt="Cloudy Weather">
+<img src="https://github.com/user-attachments/assets/fc7781c0-4c28-4069-aa68-3356aa4f4293" width="250" alt="Cloudy Weather"/>
 
 *Gray atmospheric design for partly cloudy conditions*
 
 ### Location Search
-<img src="screenshots/location_search.png" width="250" alt="Location Search">
+<img src="https://github.com/user-attachments/assets/abcb413c-b2e2-4ffa-9c66-e520743ac7b3" width="250" alt="Location Search"/>
 
 *Autocomplete search suggestions for cities worldwide*
 
