@@ -87,10 +87,7 @@ A modern, user-friendly Android weather application built with Kotlin that provi
 - **[Lifecycle Components](https://developer.android.com/jetpack/androidx/releases/lifecycle)** (v2.7.0) - ViewModel and LiveData
 - **[Kotlin Coroutines](https://kotlinlang.org/docs/coroutines-overview.html)** (v1.7.3) - Asynchronous operations
 
-### Testing
-- **JUnit** (v4.13.2) - Unit testing framework
-- **Mockito** (v5.8.0) - Mocking framework
-- **Espresso** (v3.5.1) - UI testing
+
 
 ## Setup Instructions
 
