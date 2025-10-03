@@ -178,9 +178,6 @@ This app uses the [WeatherAPI.com](https://www.weatherapi.com/) service:
 - **Current Weather Endpoint**: Provides real-time weather data
 - **Location Search Endpoint**: Autocomplete city search
 
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## License
 
