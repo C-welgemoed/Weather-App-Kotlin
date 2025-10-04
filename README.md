@@ -176,9 +176,7 @@ This app uses the [WeatherAPI.com](https://www.weatherapi.com/) service:
 - **Location Search Endpoint**: Autocomplete city search
 
 
-## License
 
-[Add your license here]
 
 ## Acknowledgments
 
