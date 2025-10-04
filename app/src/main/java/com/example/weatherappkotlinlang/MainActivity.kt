@@ -1,11 +1,15 @@
 package com.example.weatherappkotlinlang
 
 import android.app.SearchManager
+import android.content.Context
 import android.database.MatrixCursor
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
 import android.os.Bundle
 import android.provider.BaseColumns
 import android.widget.*
 import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -17,6 +21,9 @@ import com.example.weatherappkotlinlang.data.models.WeatherForecast
 import com.example.weatherappkotlinlang.data.repository.WeatherRepository
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.*
+import java.io.IOException
+import java.net.InetSocketAddress
+import java.net.Socket
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -41,7 +48,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var seaLevelText: TextView
     private lateinit var loadingProgressBar: ProgressBar
     private lateinit var errorText: TextView
-    // Additional UI fields that exist in layout but weren't in the original code
     private lateinit var maxTempText: TextView
     private lateinit var minTempText: TextView
     private lateinit var sunriseText: TextView
@@ -55,6 +61,7 @@ class MainActivity : AppCompatActivity() {
     private var locations: List<LocationSearchResult> = emptyList()
     private var selectedLocation: LocationSearchResult? = null
     private var weatherForecast: WeatherForecast? = null
+    private var internetCheckInProgress = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -71,8 +78,8 @@ class MainActivity : AppCompatActivity() {
         setupSearchView()
         setupInitialState()
 
-        // Load default location (Pretoria) on start
-        loadDefaultLocation()
+        // Check real internet connectivity before loading data
+        checkRealInternetAndLoadData()
     }
 
     private fun initializeViews() {
@@ -90,21 +97,79 @@ class MainActivity : AppCompatActivity() {
         seaLevelText = findViewById(R.id.seaLevelText)
         loadingProgressBar = findViewById(R.id.loadingProgressBar)
         errorText = findViewById(R.id.errorText)
-
-        // Additional UI fields from layout
         maxTempText = findViewById(R.id.maxTempText)
         minTempText = findViewById(R.id.minTempText)
         sunriseText = findViewById(R.id.sunriseText)
         sunsetText = findViewById(R.id.sunsetText)
+        pressureText = seaLevelText
+    }
 
-        // Map to new weather details
-        pressureText = seaLevelText // Reuse sea level text view for pressure
+    private fun checkRealInternetAndLoadData() {
+        if (internetCheckInProgress) return
+
+        internetCheckInProgress = true
+        showLoading(true)
+
+        scope.launch {
+            val hasInternet = withContext(Dispatchers.IO) {
+                hasRealInternetConnection()
+            }
+
+            showLoading(false)
+            internetCheckInProgress = false
+
+            if (!hasInternet) {
+                showInternetRequiredDialog()
+            } else {
+                loadDefaultLocation()
+            }
+        }
+    }
+
+    private fun hasRealInternetConnection(): Boolean {
+        // First check if network is available
+        val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val network = connectivityManager.activeNetwork ?: return false
+        val capabilities = connectivityManager.getNetworkCapabilities(network) ?: return false
+
+        val hasTransport = capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) ||
+                capabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) ||
+                capabilities.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET)
+
+        if (!hasTransport) return false
+
+        // Now check if we can actually reach the internet
+        return try {
+            val socket = Socket()
+            val socketAddress = InetSocketAddress("8.8.8.8", 53) // Google DNS
+            socket.connect(socketAddress, 3000) // 3 second timeout
+            socket.close()
+            true
+        } catch (e: IOException) {
+            false
+        }
+    }
+
+    private fun showInternetRequiredDialog() {
+        AlertDialog.Builder(this)
+            .setTitle("No Internet Connection")
+            .setMessage("This app requires an active internet connection to fetch weather data.\n\nPlease check:\n• WiFi or mobile data is enabled\n• You have internet access (not just connected to network)\n• DNS settings are correct")
+            .setPositiveButton("Retry") { _, _ ->
+                checkRealInternetAndLoadData()
+            }
+            .setNegativeButton("Exit") { _, _ ->
+                finish()
+            }
+            .setCancelable(false)
+            .show()
     }
 
     private fun setupSearchView() {
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
-                query?.let { searchLocations(it) }
+                query?.let {
+                    searchLocations(it)
+                }
                 return true
             }
 
@@ -159,11 +224,11 @@ class MainActivity : AppCompatActivity() {
                     setupLocationSuggestions(foundLocations)
                     hideError()
                 }.onFailure { exception ->
-                    showError(exception.message ?: "Failed to search locations")
+                    handleNetworkError(exception)
                     locations = emptyList()
                 }
             } catch (e: Exception) {
-                showError("Network error occurred")
+                handleNetworkError(e)
                 locations = emptyList()
             } finally {
                 showLoading(false)
@@ -214,37 +279,47 @@ class MainActivity : AppCompatActivity() {
                     updateWeatherDisplay(forecast)
                     hideError()
                 }.onFailure { exception ->
-                    showError(exception.message ?: "Failed to get weather data")
+                    handleNetworkError(exception)
                 }
             } catch (e: Exception) {
-                showError("Network error occurred")
+                handleNetworkError(e)
             } finally {
                 showLoading(false)
             }
         }
     }
 
+    private fun handleNetworkError(exception: Throwable) {
+        val message = when {
+            exception.message?.contains("UnknownHostException") == true ||
+                    exception.message?.contains("Unable to resolve host") == true -> {
+                "No internet connection. Please check your network settings."
+            }
+            exception.message?.contains("timeout") == true -> {
+                "Connection timeout. Please try again."
+            }
+            else -> exception.message ?: "Network error occurred"
+        }
+        showError(message)
+    }
+
     private fun updateWeatherDisplay(forecast: WeatherForecast) {
-        // Update main weather info
         currentTempText.text = "${forecast.currentTemp}°C"
         weatherConditionText.text = forecast.condition.uppercase()
         dayText.text = forecast.dayOfWeek
         dateText.text = forecast.date
         cityNameText.text = "${forecast.cityName}, ${forecast.country}"
 
-        // Update weather details
         humidityValueText.text = "${forecast.humidity}%"
         windSpeedText.text = forecast.windSpeed
         conditionsText.text = forecast.condition
         pressureText.text = forecast.pressure
 
-        // Set placeholder values for fields not available in current API response
-        maxTempText.text = "Max: ${forecast.currentTemp + 3}°C" // Estimated max
-        minTempText.text = "Min: ${forecast.currentTemp - 5}°C" // Estimated min
-        sunriseText.text = "06:30" // Placeholder
-        sunsetText.text = "18:45" // Placeholder
+        maxTempText.text = "Max: ${forecast.currentTemp + 3}°C"
+        minTempText.text = "Min: ${forecast.currentTemp - 5}°C"
+        sunriseText.text = "06:30"
+        sunsetText.text = "18:45"
 
-        // Update weather animation and background
         updateWeatherAnimation(forecast.condition)
         updateBackgroundForWeather(forecast.condition)
     }
@@ -254,7 +329,6 @@ class MainActivity : AppCompatActivity() {
         val animationRes = when (weatherCondition) {
             WeatherCondition.SUNNY -> R.raw.sun
             WeatherCondition.RAINY -> {
-                // Check if rain animation exists, otherwise fallback to sun
                 try {
                     R.raw.rain
                 } catch (e: Exception) {
@@ -262,7 +336,6 @@ class MainActivity : AppCompatActivity() {
                 }
             }
             WeatherCondition.CLOUDY -> {
-                // Check if cloud animation exists, otherwise fallback to sun
                 try {
                     R.raw.cloud
                 } catch (e: Exception) {
@@ -270,7 +343,6 @@ class MainActivity : AppCompatActivity() {
                 }
             }
             WeatherCondition.SNOWY -> {
-                // Check if snow animation exists, otherwise fallback to sun
                 try {
                     R.raw.snow
                 } catch (e: Exception) {
@@ -311,7 +383,6 @@ class MainActivity : AppCompatActivity() {
         sunsetText.text = "--:--"
         cityNameText.text = "Select a City"
 
-        // Set default background
         findViewById<androidx.constraintlayout.widget.ConstraintLayout>(R.id.main)
             .setBackgroundResource(R.drawable.sunny_background)
     }

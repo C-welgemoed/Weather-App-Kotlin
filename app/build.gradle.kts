@@ -1,3 +1,6 @@
+import java.util.Properties
+import java.io.FileInputStream
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
@@ -19,10 +22,15 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
-        // ✅ Added API key here (replace with your actual key)
-        // TODO: replace with your own api key form https://www.weatherapi.com/ (has free tier)
-        buildConfigField("String", "WEATHER_API_KEY", "\"YOUR_API_KEY_HERE\"")
+        // Load properties from local.properties
+        val properties = Properties()
+        val localPropertiesFile = rootProject.file("local.properties")
+        if (localPropertiesFile.exists()) {
+            properties.load(FileInputStream(localPropertiesFile))
+        }
 
+        val apiKey = properties.getProperty("WEATHER_API_KEY")
+        buildConfigField("String", "WEATHER_API_KEY", "\"$apiKey\"")
     }
 
     buildTypes {
