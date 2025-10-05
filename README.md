@@ -183,6 +183,12 @@ This app uses the [WeatherAPI.com](https://www.weatherapi.com/) service:
 - Weather data provided by [WeatherAPI.com](https://www.weatherapi.com/)
 - Lottie animations from [LottieFiles](https://lottiefiles.com/)
 - Icons and design inspired by Material Design guidelines
+- Rain Photo by 𝗛&𝗖𝗢 : https://www.pexels.com/photo/a-gloomy-sky-4955064/ 
+- Splash Screen Photo by Szabó Viktor: https://www.pexels.com/photo/photo-of-clouds-during-dawn-3227984/ 
+- Cloud Photo by Matheus Potsclam Barro: https://www.pexels.com/photo/heavy-clouds-1828305/ 
+- Snow Photo by Burak The Weekender: https://www.pexels.com/photo/photo-of-snow-field-near-trees-1978126/
+- Sunny Photo by Min An: https://www.pexels.com/photo/scenic-view-of-the-forest-during-sunrise-1006121/
+
 
 
 For issues, questions, or suggestions, please open an issue in the repository.
