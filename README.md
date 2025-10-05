@@ -111,19 +111,22 @@ A modern, user-friendly Android weather application built with Kotlin that provi
    - Free tier includes 1,000,000 calls/month
 
 3. **Configure API Key**
-   
-   Open `build.gradle.kts` (app module) and replace the empty API key:
+
+   Open `Local.properties` and place ```YOUR_API_KEY_HERE= ``` and your API key
+
+
+   Open `build.gradle.kts` (app module) and add the buildConfig field if not present:
    
    ```kotlin
    buildConfigField("String", "WEATHER_API_KEY", "\"YOUR_API_KEY_HERE\"")
    ```
 
-4. **Sync and Build**
+3. **Sync and Build**
    - Open the project in Android Studio
    - Let Gradle sync complete
    - Build the project
 
-5. **Run the App**
+4. **Run the App**
    - Connect an Android device or start an emulator
    - Click Run in Android Studio
 
