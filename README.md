@@ -182,7 +182,8 @@ This app uses the [WeatherAPI.com](https://www.weatherapi.com/) service:
 
 - Weather data provided by [WeatherAPI.com](https://www.weatherapi.com/)
 - Lottie animations from [LottieFiles](https://lottiefiles.com/)
-- Rain Photo by 𝗛&𝗖𝗢 : https://www.pexels.com/photo/a-gloomy-sky-4955064/ 
+ - **Photos used attribution**
+-  Rain Photo by 𝗛&𝗖𝗢 : https://www.pexels.com/photo/a-gloomy-sky-4955064/ 
 - Splash Screen Photo by Szabó Viktor: https://www.pexels.com/photo/photo-of-clouds-during-dawn-3227984/ 
 - Cloud Photo by Matheus Potsclam Barro: https://www.pexels.com/photo/heavy-clouds-1828305/ 
 - Snow Photo by Burak The Weekender: https://www.pexels.com/photo/photo-of-snow-field-near-trees-1978126/
@@ -190,7 +191,6 @@ This app uses the [WeatherAPI.com](https://www.weatherapi.com/) service:
 
 
 
-For issues, questions, or suggestions, please open an issue in the repository.
 
 ---
 
