@@ -29,17 +29,18 @@ A modern, user-friendly Android weather application built with Kotlin that provi
 *Loading screen with animated weather icon*
 
 ### Weather Display - Sunny Conditions
-<img src="https://github.com/user-attachments/assets/3b17b9c9-2d79-45b2-9ed7-730d2f482dc0" width="250" alt="Sunny Weather in Diepenbeek"/>
+
+![IMG-20251006-WA0011](https://github.com/user-attachments/assets/94d9c13e-c1bc-4226-857e-d814e91534d0)
 
 *Warm gradient background for sunny weather in Diepenbeek, Belgium*
 
 ### Weather Display - Cloudy Conditions  
-<img src="https://github.com/user-attachments/assets/fc7781c0-4c28-4069-aa68-3356aa4f4293" width="250" alt="Cloudy Weather"/>
+![IMG-20251006-WA0009](https://github.com/user-attachments/assets/4bb48385-6a3c-43f0-9e82-83bae71f4eec)
 
 *Gray atmospheric design for partly cloudy conditions*
 
-### Location Search
-<img src="https://github.com/user-attachments/assets/abcb413c-b2e2-4ffa-9c66-e520743ac7b3" width="250" alt="Location Search"/>
+### Weather Display - Rain Conditions 
+![IMG-20251006-WA0008](https://github.com/user-attachments/assets/e93d3eb1-b7b9-485e-a5b5-030a25537e3b)
 
 *Autocomplete search suggestions for cities worldwide*
 
