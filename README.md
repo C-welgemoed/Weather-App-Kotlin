@@ -24,23 +24,24 @@ A modern, user-friendly Android weather application built with Kotlin that provi
 <div align="center">
 
 ### Splash Screen
-<img src="https://github.com/user-attachments/assets/fcd283bc-06f5-46be-a4c2-9cc68091436a" width="250" alt="Splash Screen"/>
+<img src="https://github.com/user-attachments/assets/94d9c13e-c1bc-4226-857e-d814e91534d0" alt="Splash Screen" width="300"/>
 
 *Loading screen with animated weather icon*
 
 ### Weather Display - Sunny Conditions
+<img src="https://github.com/user-attachments/assets/b974390c-f2ce-4e7f-8b2e-da65d8d618ec" alt="Sunny Weather" width="300"/>
 
-![IMG-20251006-WA0011](https://github.com/user-attachments/assets/94d9c13e-c1bc-4226-857e-d814e91534d0)
 
 *Warm gradient background for sunny weather in Diepenbeek, Belgium*
 
 ### Weather Display - Cloudy Conditions  
-![IMG-20251006-WA0009](https://github.com/user-attachments/assets/4bb48385-6a3c-43f0-9e82-83bae71f4eec)
+<img src="https://github.com/user-attachments/assets/4bb48385-6a3c-43f0-9e82-83bae71f4eec" alt="Cloudy Weather" width="300"/>
+
 
 *Gray atmospheric design for partly cloudy conditions*
 
 ### Weather Display - Rain Conditions 
-![IMG-20251006-WA0008](https://github.com/user-attachments/assets/e93d3eb1-b7b9-485e-a5b5-030a25537e3b)
+<img src="https://github.com/user-attachments/assets/e93d3eb1-b7b9-485e-a5b5-030a25537e3b" alt="Rainy Weather with Search" width="300"/>
 
 *Autocomplete search suggestions for cities worldwide*
 
