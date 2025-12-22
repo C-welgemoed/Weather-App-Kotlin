@@ -16,7 +16,6 @@ A modern, user-friendly Android weather application built with Kotlin that provi
   - Sunrise and sunset times
 - 🎨 **Dynamic UI**: Background changes based on weather conditions (sunny, rainy, cloudy, snowy)
 - 🎭 **Lottie Animations**: Smooth weather animations that match current conditions
-- 🔒 **Secure API Key Storage**: Encrypted storage using Android Security Crypto
 - ⚡ **Splash Screen**: Loading screen with data pre-fetching
 
 ## Screenshots
